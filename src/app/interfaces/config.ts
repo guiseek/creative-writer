@@ -1,0 +1,24 @@
+interface RectConfig {
+  x: number
+  y: number
+  w: number
+  h: number
+}
+
+interface GridConfig extends RectConfig {
+  tile: number
+  active: boolean
+}
+
+export abstract class Config {
+  abstract width: number
+  abstract height: number
+  abstract grid: GridConfig
+  abstract logo: RectConfig
+  abstract background: RectConfig
+  abstract title: RectConfig
+  abstract sponsor: RectConfig
+  abstract devParana: RectConfig
+  abstract logos: string[][]
+  abstract backgrounds: string[][]
+}

@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@math/*": ["src/app/math/*"],
+      "@math": ["src/app/math/index.ts"],
+      "@interfaces/*": ["src/app/interfaces/*"],
+      "@interfaces": ["src/app/interfaces/index.ts"],
+      "@utils/*": ["src/app/utils/*"],
+      "@utils": ["src/app/utils/index.ts"],
+      "@core/*": ["src/core/*"],
+      "@core": ["src/core/index.ts"],
+      "@models/*": ["src/app/models/*"],
+      "@models": ["src/app/models/index.ts"],
+      "@events/*": ["src/app/events/*"],
+      "@events": ["src/app/events/index.ts"],
+      "@elements/*": ["src/app/elements/*"],
+      "@elements": ["src/app/elements/index.ts"],
+      "@components/*": ["src/app/components/*"],
+      "@components": ["src/app/components/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

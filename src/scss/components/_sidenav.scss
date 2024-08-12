@@ -1,0 +1,154 @@
+@use 'sass:math' as math;
+
+$onsurface: var(--cw-surface-rgb);
+$surface: var(--cw-surface-rgb);
+
+$color__sidenav: $onsurface;
+$color__toggle: $surface;
+
+$width__sidenav: 420px;
+$margin__button: calc($width__sidenav + 16px);
+
+.cw-sidenav-toggle {
+  position: fixed;
+  z-index: 1;
+  border: 4px solid rgb(var(--cw-primary-rgb));
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: $margin__button;
+  margin-top: 1em;
+  background-color: rgb(var(--cw-surface-rgb));
+  transform: rotate(0deg);
+  cursor: pointer;
+  transition: transform 400ms ease-in-out;
+  top: 1em;
+
+  .icon {
+    color: rgb(var(--cw-primary-rgb));
+    path {
+      border-radius: 2px;
+    }
+  }
+
+  &.is-open {
+    transform: translateX(0.3em) rotate(45deg);
+  }
+}
+
+.cw-sidenav {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: $width__sidenav;
+  height: 100vh;
+  background-color: rgba(var(--cw-onprimary-rgb), 0.38);
+  transition: 0.7s;
+  color: rgb(var(--cw-onsurface-rgb));
+
+  transform: translateX(calc($width__sidenav * -1));
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  fieldset,
+  form > button,
+  form > label {
+    margin: 1em;
+  }
+
+  details[open] summary {
+    color: rgb(var(--cw-primary-rgb));
+  }
+
+  &.is-open {
+    // overflow-x: auto;
+    transform: translateX(0);
+  }
+}
+
+main {
+  transition: transform 400ms ease-in-out;
+}
+
+.cw-sidenav-is-open {
+  main {
+    transform: translateX(calc($width__sidenav));
+  }
+}
+// .cw-sidenav {
+//   position: fixed;
+//   left: -250px;
+//   top: 0;
+//   width: 250px;
+//   height: 100%;
+//   background-color: #333;
+//   color: white;
+//   overflow-x: hidden;
+//   transition: left 0.3s ease;
+//   padding-top: 60px;
+//   z-index: 1000;
+// }
+
+// .cw-sidenav a {
+//   padding: 8px 16px;
+//   text-decoration: none;
+//   font-size: 22px;
+//   color: white;
+//   display: block;
+//   transition: 0.3s;
+// }
+
+// .cw-sidenav a:hover {
+//   background-color: #575757;
+// }
+
+// .main-content {
+//   margin-left: 0;
+//   transition: margin-left 0.3s ease;
+//   padding: 16px;
+// }
+
+// .cw-toggle-button {
+//   position: fixed;
+//   top: 20px;
+//   left: 20px;
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   z-index: 1001;
+// }
+
+// /* Hamburger Icon Animation */
+// .hamburger path {
+//   fill: white;
+//   transition: 0.3s ease;
+// }
+
+// .hamburger.open path:nth-child(1) {
+//   transform: translateY(30px) rotate(45deg);
+// }
+
+// .hamburger.open path:nth-child(2) {
+//   opacity: 0;
+// }
+
+// .hamburger.open path:nth-child(3) {
+//   transform: translateY(-30px) rotate(-45deg);
+// }
+
+// /* Sidenav Open */
+// .cw-sidenav.open {
+//   left: 0;
+// }
+
+// .main-content.open {
+//   margin-left: 250px;
+// }

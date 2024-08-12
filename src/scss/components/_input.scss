@@ -1,0 +1,490 @@
+.cw-input-filled {
+  position: relative;
+  display: inline-block;
+  // font-family: var(
+  //   --cw-font,
+  //   'Roboto',
+  //   'Segoe UI',
+  //   BlinkMacSystemFont,
+  //   system-ui,
+  //   -apple-system
+  // );
+  // font-size: 16px;
+  // line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Input, Textarea */
+.cw-input-filled > input,
+.cw-input-filled > textarea {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-top: solid 27px transparent;
+  border-bottom: solid 2px rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  border-radius: 4px 4px 0 0;
+  padding: 0 12px 10px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.04);
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  transition: border-bottom 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.cw-input-filled > input + span,
+.cw-input-filled > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  padding: 7px 12px 0;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  font-size: 89%;
+  line-height: 18px;
+  pointer-events: none;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Underline */
+.cw-input-filled > input + span::after,
+.cw-input-filled > textarea + span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  transform-origin: bottom center;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+/* Hover */
+.cw-input-filled > input:hover,
+.cw-input-filled > textarea:hover {
+  border-bottom-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.08);
+}
+
+/* Placeholder-shown */
+.cw-input-filled > input:not(:focus):placeholder-shown + span,
+.cw-input-filled
+  > textarea:not(:focus):placeholder-shown
+  + span {
+  font-size: inherit;
+  line-height: 48px;
+}
+
+/* Focus */
+.cw-input-filled > input:focus,
+.cw-input-filled > textarea:focus {
+  outline: none;
+}
+
+.cw-input-filled > input:focus + span,
+.cw-input-filled > textarea:focus + span {
+  color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+}
+
+.cw-input-filled > input:focus + span::before,
+.cw-input-filled > textarea:focus + span::before {
+  opacity: 0.12;
+}
+
+.cw-input-filled > input:focus + span::after,
+.cw-input-filled > textarea:focus + span::after {
+  transform: scale(1);
+}
+
+/* Disabled */
+.cw-input-filled > input:disabled,
+.cw-input-filled > textarea:disabled {
+  border-bottom-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+  background-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.24);
+}
+
+.cw-input-filled > input:disabled + span,
+.cw-input-filled > textarea:disabled + span {
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .cw-input-filled > input,
+    .cw-input-filled > input + span,
+    .cw-input-filled > input + span::after,
+    .cw-input-filled > textarea,
+    .cw-input-filled > textarea + span,
+    .cw-input-filled > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}
+
+// Outlined
+.cw-input-outlined {
+  --cw-safari-helper1: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  position: relative;
+  display: inline-block;
+  padding-top: 6px;
+  font-family: var(
+    --cw-font,
+    'Roboto',
+    'Segoe UI',
+    BlinkMacSystemFont,
+    system-ui,
+    -apple-system
+  );
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Input, Textarea */
+.cw-input-outlined > input,
+.cw-input-outlined > textarea {
+  box-sizing: border-box;
+  margin: 0;
+  border: solid 2px; /* Safari */
+  border-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  border-top-color: transparent;
+  border-radius: 4px;
+  padding: 15px 13px 15px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: transparent;
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Span */
+.cw-input-outlined > input + span,
+.cw-input-outlined > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  border-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  width: 100%;
+  max-height: 100%;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  font-size: 89%;
+  line-height: 15px;
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Corners */
+.cw-input-outlined > input + span::before,
+.cw-input-outlined > input + span::after,
+.cw-input-outlined > textarea + span::before,
+.cw-input-outlined > textarea + span::after {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border-top: solid 2px;
+  border-top-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  min-width: 10px;
+  height: 8px;
+  pointer-events: none;
+  box-shadow: inset 0 1px transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cw-input-outlined > input + span::before,
+.cw-input-outlined > textarea + span::before {
+  margin-right: 4px;
+  border-left: solid 2px transparent;
+  border-radius: 4px 0;
+}
+
+.cw-input-outlined > input + span::after,
+.cw-input-outlined > textarea + span::after {
+  flex-grow: 1;
+  margin-left: 4px;
+  border-right: solid 2px transparent;
+  border-radius: 0 4px;
+}
+
+/* Hover */
+.cw-input-outlined:hover > input,
+.cw-input-outlined:hover > textarea {
+  border-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+  border-top-color: transparent;
+}
+
+.cw-input-outlined:hover > input + span::before,
+.cw-input-outlined:hover > textarea + span::before,
+.cw-input-outlined:hover > input + span::after,
+.cw-input-outlined:hover > textarea + span::after {
+  border-top-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+}
+
+.cw-input-outlined:hover > input:not(:focus):placeholder-shown,
+.cw-input-outlined:hover
+  > textarea:not(:focus):placeholder-shown {
+  border-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+}
+
+/* Placeholder-shown */
+.cw-input-outlined > input:not(:focus):placeholder-shown,
+.cw-input-outlined > textarea:not(:focus):placeholder-shown {
+  border-top-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+}
+
+.cw-input-outlined > input:not(:focus):placeholder-shown + span,
+.cw-input-outlined
+  > textarea:not(:focus):placeholder-shown
+  + span {
+  font-size: inherit;
+  line-height: 68px;
+}
+
+.cw-input-outlined
+  > input:not(:focus):placeholder-shown
+  + span::before,
+.cw-input-outlined
+  > textarea:not(:focus):placeholder-shown
+  + span::before,
+.cw-input-outlined
+  > input:not(:focus):placeholder-shown
+  + span::after,
+.cw-input-outlined
+  > textarea:not(:focus):placeholder-shown
+  + span::after {
+  border-top-color: transparent;
+}
+
+/* Focus */
+.cw-input-outlined > input:focus,
+.cw-input-outlined > textarea:focus {
+  border-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  border-top-color: transparent;
+  box-shadow: inset 1px 0 var(--cw-safari-helper1),
+    inset -1px 0 var(--cw-safari-helper1), inset 0 -1px var(--cw-safari-helper1);
+  outline: none;
+}
+
+.cw-input-outlined > input:focus + span,
+.cw-input-outlined > textarea:focus + span {
+  color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+}
+
+.cw-input-outlined > input:focus + span::before,
+.cw-input-outlined > input:focus + span::after,
+.cw-input-outlined > textarea:focus + span::before,
+.cw-input-outlined > textarea:focus + span::after {
+  border-top-color: var(--cw-safari-helper1) !important;
+  box-shadow: inset 0 1px var(--cw-safari-helper1);
+}
+
+/* Disabled */
+.cw-input-outlined > input:disabled,
+.cw-input-outlined > input:disabled + span,
+.cw-input-outlined > textarea:disabled,
+.cw-input-outlined > textarea:disabled + span {
+  border-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  border-top-color: transparent !important;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+  pointer-events: none;
+}
+
+.cw-input-outlined > input:disabled + span::before,
+.cw-input-outlined > input:disabled + span::after,
+.cw-input-outlined > textarea:disabled + span::before,
+.cw-input-outlined > textarea:disabled + span::after {
+  border-top-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38) !important;
+}
+
+.cw-input-outlined > input:disabled:placeholder-shown,
+.cw-input-outlined > input:disabled:placeholder-shown + span,
+.cw-input-outlined > textarea:disabled:placeholder-shown,
+.cw-input-outlined > textarea:disabled:placeholder-shown + span {
+  border-top-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38) !important;
+}
+
+.cw-input-outlined
+  > input:disabled:placeholder-shown
+  + span::before,
+.cw-input-outlined
+  > input:disabled:placeholder-shown
+  + span::after,
+.cw-input-outlined
+  > textarea:disabled:placeholder-shown
+  + span::before,
+.cw-input-outlined
+  > textarea:disabled:placeholder-shown
+  + span::after {
+  border-top-color: transparent !important;
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .cw-input-outlined > input,
+    .cw-input-outlined > input + span,
+    .cw-input-outlined > textarea,
+    .cw-input-outlined > textarea + span,
+    .cw-input-outlined > input + span::before,
+    .cw-input-outlined > input + span::after,
+    .cw-input-outlined > textarea + span::before,
+    .cw-input-outlined > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}
+
+// Standard
+.cw-input-standard {
+  position: relative;
+  display: inline-block;
+  font-family: var(
+    --cw-font,
+    'Roboto',
+    'Segoe UI',
+    BlinkMacSystemFont,
+    system-ui,
+    -apple-system
+  );
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Input, Textarea */
+.cw-input-standard > input,
+.cw-input-standard > textarea {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-top: solid 27px transparent;
+  border-bottom: solid 2px rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  padding: 0 0 4px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: transparent;
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  transition: border-bottom 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.cw-input-standard > input + span,
+.cw-input-standard > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  box-sizing: border-box;
+  padding: 7px 0 0;
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
+  font-size: 89%;
+  line-height: 18px;
+  pointer-events: none;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Underline */
+.cw-input-standard > input + span::after,
+.cw-input-standard > textarea + span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+  transform-origin: bottom center;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+/* Hover */
+.cw-input-standard > input:hover,
+.cw-input-standard > textarea:hover {
+  border-bottom-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.87);
+}
+
+/* Placeholder-shown */
+.cw-input-standard > input:not(:focus):placeholder-shown + span,
+.cw-input-standard
+  > textarea:not(:focus):placeholder-shown
+  + span {
+  font-size: inherit;
+  line-height: 56px;
+}
+
+/* Focus */
+.cw-input-standard > input:focus,
+.cw-input-standard > textarea:focus {
+  outline: none;
+}
+
+.cw-input-standard > input:focus + span,
+.cw-input-standard > textarea:focus + span {
+  color: rgb(var(--cw-primary-rgb, 33, 150, 243));
+}
+
+.cw-input-standard > input:focus + span::before,
+.cw-input-standard > textarea:focus + span::before {
+  opacity: 0.12;
+}
+
+.cw-input-standard > input:focus + span::after,
+.cw-input-standard > textarea:focus + span::after {
+  transform: scale(1);
+}
+
+/* Disabled */
+.cw-input-standard > input:disabled,
+.cw-input-standard > textarea:disabled {
+  border-bottom-color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+}
+
+.cw-input-standard > input:disabled + span,
+.cw-input-standard > textarea:disabled + span {
+  color: rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.38);
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .cw-input-standard > input,
+    .cw-input-standard > input + span,
+    .cw-input-standard > input + span::after,
+    .cw-input-standard > textarea,
+    .cw-input-standard > textarea + span,
+    .cw-input-standard > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}

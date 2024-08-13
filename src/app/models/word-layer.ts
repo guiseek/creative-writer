@@ -1,15 +1,14 @@
-import {writeText} from '@utils/writes'
 import {Layer} from './base/layer'
 
 type FontWeight = 'normal' | 'bold'
 
-export class TextLayer extends Layer {
+export class WordLayer extends Layer {
   #color = 'black'
 
   #weight: FontWeight = 'bold'
   #family = 'Mukta'
   #size = 24
-  #text = ''
+  #word = ''
 
   constructor(x: number, y: number, width: number, height: number) {
     super(x, y, width, height)
@@ -20,9 +19,7 @@ export class TextLayer extends Layer {
     this.context.font = this.#getFont()
     this.context.fillStyle = this.#color
 
-    writeText(this.context, this.#text, 750).map((text, i) => {
-      this.context.fillText(text, 0, this.height / 2 + this.#size * i)
-    })
+    this.context.fillText(this.#word, 0, this.height)
   }
 
   #getFont() {
@@ -44,8 +41,8 @@ export class TextLayer extends Layer {
     return this
   }
 
-  setText(text: string) {
-    this.#text = text
+  setWord(text: string) {
+    this.#word = text
     return this
   }
 }

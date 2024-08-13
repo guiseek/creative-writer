@@ -1,5 +1,5 @@
 import {builtIn} from '@utils/decorators'
-import {Input} from './input'
+import {Input} from '../input'
 
 @builtIn('input', 'cw-slider')
 export class Slider extends Input<string> {

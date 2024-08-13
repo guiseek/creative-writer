@@ -134,7 +134,7 @@ export const formControl: FormControl = {
     button: new Button('Select image'),
   },
   presentation: {
-    add: new Button('Add presentation', 'button', () => {}, 'text'),
+    add: new Button('Add presentation', 'button'),
   },
   reset: new Button('Reset', 'reset'),
 }

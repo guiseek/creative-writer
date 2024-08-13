@@ -90,6 +90,7 @@ export const loadApp = (container: HTMLElement) => {
     control.logo,
     control.title,
     control.presentation.add,
+    control.sponsor.button,
     accordion,
     control.grid
   )

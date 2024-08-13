@@ -1,6 +1,6 @@
-import type {PropValue} from '@interfaces/prop-value'
+import type {PropValue} from '@interfaces/common'
 import {dataFromForm} from './data-from-form'
-import {entries} from './entries'
+import {entries} from './iterators'
 import {parse} from './parse'
 
 export type FormValue = Record<string, PropValue>

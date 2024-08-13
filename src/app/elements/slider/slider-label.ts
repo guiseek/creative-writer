@@ -1,5 +1,5 @@
 import {builtIn} from '@utils/decorators'
-import {Slider} from './slider'
+import {Slider} from '../slider'
 import {h} from '@utils/h'
 
 @builtIn('label', 'cw-slider-label')

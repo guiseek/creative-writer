@@ -1,6 +1,6 @@
 import {autonomous, CustomElement} from '@utils/decorators'
 import {AccordionItem} from './accordion-item'
-import {children} from '@utils/children'
+import {children} from '@utils/iterators'
 import {timeout} from '@utils/timeout'
 
 @autonomous('cw-accordion')

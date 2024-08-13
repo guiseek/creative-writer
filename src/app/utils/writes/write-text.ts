@@ -1,6 +1,6 @@
 import {appendWord} from './append-word'
 
-export function wrapText(
+export function writeText(
   ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D,
   text: string,
   maxWidth: number

@@ -1,8 +1,8 @@
 import {Presentation} from '@interfaces/presentation'
-import {InputLabel} from '@elements/input-label'
+import {InputLabel} from '@elements/input'
 import {builtIn} from '@utils/decorators'
 import {Button} from '@elements/button'
-import {values} from '@utils/values'
+import {values} from '@utils/iterators'
 import {Form} from '@elements/form'
 import {h} from '@utils/h'
 

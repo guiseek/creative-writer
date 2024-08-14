@@ -1,7 +1,8 @@
 import {EventHandler, FormControl, LayerSchema, Schema} from '@interfaces'
-import {onSponsorCreated, onSponsorSelected} from '@events/sponsor'
 import {Form, Canvas, Sidenav, Accordion, DownloadButton} from '@elements'
+import {onSponsorCreated, onSponsorSelected} from '@events/sponsor'
 import {PresentationForm} from '@components/presentation'
+import {ThemeToggle} from '@components/theme'
 import {onFormChange} from '@events'
 import {use} from '@websqnl/di'
 import {h} from '@utils'
@@ -22,6 +23,9 @@ export const loadApp = (container: HTMLElement) => {
   const handler = use(EventHandler)
 
   const accordion = new Accordion()
+
+  const theme = use(ThemeToggle)
+  container.appendChild(theme)
 
   /**
    *  ___ _ __   ___  _ __  ___  ___  _ __
@@ -76,7 +80,7 @@ export const loadApp = (container: HTMLElement) => {
 
   layer.background.setDraggable(false).setSrc(form.value.logo).render()
 
-  layer.logo.setOrder(4).setSrc('logo.svg').render()
+  layer.logo.setOrder(4).setSrc('logos/dev-parana.svg').render()
 
   layer.title
     .setText(control.title.value)
@@ -89,14 +93,14 @@ export const loadApp = (container: HTMLElement) => {
     layer.logo,
     layer.background,
     layer.title,
-    layer.details,
+    layer.details
   )
 
   const dateTime = h(
     'div',
     {className: 'form-group'},
     control.date,
-    control.time,
+    control.time
   )
 
   form.append(
@@ -108,7 +112,7 @@ export const loadApp = (container: HTMLElement) => {
     accordion,
     control.background,
     control.sponsor.button,
-    control.grid,
+    control.grid
   )
 
   sidenav.add(form)

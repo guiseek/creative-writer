@@ -19,6 +19,8 @@ export class Canvas extends HTMLCanvasElement {
     this.onmousemove = this.#onMouseMove
     this.onmouseup = this.#onMouseUp
 
+    this.classList.add('transparent')
+
     this.oncontextmenu = (event) => {
       event.preventDefault()
 

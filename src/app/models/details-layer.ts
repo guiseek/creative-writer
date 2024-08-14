@@ -12,21 +12,21 @@ export class DetailsLayer extends Layer implements DetailsSchema {
     .setSize(48, 48)
     .setSrc('icons/clock.svg')
 
-  pin = new ImageLayer(this.position.x, 0, 180, 180)
+  pin = new ImageLayer(this.position.x, 0, 1080, 180)
     .setSize(48, 48)
     .setSrc('icons/pin.svg')
 
-  date = new WordLayer(0, 0, this.width - this.calendar.width, this.height / 4)
+  date = new WordLayer(0, 0, this.width - this.calendar.width, 180)
     .setSize(48)
     .setWeight('normal')
     .setColor('#D9D9D9')
 
-  time = new WordLayer(0, 0, this.width - this.clock.width, this.height / 4)
+  time = new WordLayer(0, 0, this.width - this.clock.width, 180)
     .setSize(48)
     .setWeight('normal')
     .setColor('#D9D9D9')
 
-  location = new WordLayer(0, 0, this.width - this.pin.width, this.height)
+  location = new WordLayer(0, 0, this.width - this.pin.width, 180)
     .setSize(48)
     .setWeight('normal')
     .setColor('#D9D9D9')
@@ -44,7 +44,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
 
     await this.renderTime(x, y)
 
-    y *= 3
+    y += 66
     x = 20
 
     await this.renderLocation(x, y)
@@ -57,7 +57,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
     }
 
     await this.date.render()
-    this.context.drawImage(this.date, x + 64, y - 4)
+    this.context.drawImage(this.date, x + 64, y - 8)
   }
 
   async renderTime(x: number, y: number) {
@@ -67,7 +67,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
     }
 
     await this.time.render()
-    this.context.drawImage(this.time, x + 64, y - 4)
+    this.context.drawImage(this.time, x + 64, y - 8)
   }
 
   async renderLocation(x: number, y: number) {
@@ -77,7 +77,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
     }
 
     await this.location.render()
-    this.context.drawImage(this.location, x + 64, y - 4)
+    this.context.drawImage(this.location, x + 64, y - 8)
   }
 
   setDate(value: string) {

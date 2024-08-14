@@ -19,7 +19,7 @@ export class WordLayer extends Layer {
     this.context.font = this.#getFont()
     this.context.fillStyle = this.#color
 
-    this.context.fillText(this.#word, 0, this.height)
+    this.context.fillText(this.#word, 0, this.#size)
   }
 
   #getFont() {

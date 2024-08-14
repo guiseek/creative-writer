@@ -9,15 +9,15 @@ export const onPresentationSubmitted = (value: SubmittedPresentation) => {
 
   const photo = value.photo
 
-  if (photo instanceof File) {
-    readDataFile(photo).then(({data}) => {
-      handler.emit('presentation.handled', {...value, photo: data})
-    })
-  } else if (typeof photo === 'string') {
-    loadBlob(photo)
+  if (value.photoUrl) {
+    loadBlob(value.photoUrl)
       .then(readDataFile)
       .then(({data}) => {
         handler.emit('presentation.handled', {...value, photo: data})
       })
+  } else if (photo instanceof File) {
+    readDataFile(photo).then(({data}) => {
+      handler.emit('presentation.handled', {...value, photo: data})
+    })
   }
 }

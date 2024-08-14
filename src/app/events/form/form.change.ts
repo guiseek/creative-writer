@@ -39,6 +39,4 @@ export const onFormChange = (value: Schema) => {
     .then(canvas.render)
 
   layer.details.render().then(canvas.render)
-
-  console.log(value)
 }

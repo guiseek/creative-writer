@@ -31,7 +31,19 @@ export class Input<T> extends HTMLInputElement {
     super()
   }
 
+  disable() {
+    this.disabled = true
+  }
+
+  enable() {
+    this.disabled = false
+  }
+
   setValue(value: T) {
     this.value = String(value)
+  }
+
+  setRequired(required: boolean) {
+    this.required = required
   }
 }

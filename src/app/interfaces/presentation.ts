@@ -6,7 +6,8 @@ export interface SubmittedPresentation {
   role: string
   company?: string
   title: string
-  photo: File | string
+  photo?: File
+  photoUrl?: string
 }
 
 export interface Presentation {

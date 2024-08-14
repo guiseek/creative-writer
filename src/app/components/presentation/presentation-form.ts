@@ -9,40 +9,49 @@ import {h} from '@utils/h'
 
 @builtIn('form', 'cw-presentation-form')
 export class PresentationForm extends Form<Presentation> {
-  header = h('h2', {textContent: 'Presentation'})
+  header = h('h2', {textContent: 'Apresentação'})
 
   controls = {
-    title: new InputLabel('Title', 'text', 'title').setRequired(true),
+    title: new InputLabel(
+      'Título da apresentação',
+      'text',
+      'title'
+    ).setRequired(true),
     github: new InputLabel('Github', 'text', 'github'),
-    speaker: new InputLabel('Speaker name', 'text', 'name').setRequired(true),
-    role: new InputLabel('Role', 'text', 'role').setRequired(true),
-    photo: new InputLabel('Photo', 'file', 'photo').setRequired(true),
-    company: new InputLabel('Company', 'text', 'company'),
+    speaker: new InputLabel('Nome do apresentador', 'text', 'name').setRequired(
+      true
+    ),
+    role: new InputLabel('Papel de atuação', 'text', 'role').setRequired(true),
+    photo: new InputLabel<File>('Foto', 'file', 'photo').setRequired(true),
+    photoUrl: new InputLabel<string>('Foto URL', 'url', 'photoUrl'),
   }
 
   actions = {
-    // reset: new Button('Reset', 'reset'),
-    submit: new Button('Submit', 'submit'),
+    submit: new Button('Adicionar', 'submit'),
   }
 
   connectedCallback() {
-    this.controls.title.setAttribute('value', 'Palestra')
-    this.controls.speaker.setAttribute('value', 'Guilherme')
-    this.controls.role.setAttribute('value', 'Arquiteto Web')
     this.append(...values(this.controls), ...values(this.actions))
+    this.controls.photoUrl.element.readOnly = true
 
     this.controls.github.onchange = async () => {
       if (this.github.value) {
         const user = await this.getFromGithub(this.github.value)
-        this.controls.speaker.element.setValue(user.name)
-        const company = user.company.split(',').slice(0, 2).join(', ')
-        this.controls.company.element.setValue(company)
+        if (user) {
+          this.controls.speaker.setValue(user.name)
+          this.controls.photoUrl.setValue(user.avatar_url)
+          this.controls.photo.setRequired(false)
+          this.controls.photo.disable()
+        }
       }
     }
   }
 
-  async getFromGithub(user: string): Promise<GithubUser> {
-    const req = fetch(`https://api.github.com/users/${user}`)
-    return req.then((res) => res.json())
+  async getFromGithub(user: string): Promise<GithubUser | void> {
+    try {
+      return await (await fetch(`https://api.github.com/users/${user}`)).json()
+    } catch {
+      // throw err
+    }
   }
 }

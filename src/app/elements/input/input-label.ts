@@ -39,7 +39,21 @@ export class InputLabel<T> extends HTMLLabelElement {
   }
 
   setRequired(required: boolean) {
-    this.element.required = required
+    this.element.setRequired(required)
+    return this
+  }
+
+
+  disable() {
+    this.element.disabled = true
+  }
+
+  enable() {
+    this.element.disabled = false
+  }
+
+  setValue(value: T) {
+    this.element.setValue(value)
     return this
   }
 

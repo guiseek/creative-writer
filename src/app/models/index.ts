@@ -1,5 +1,5 @@
 export * from './base';
-export * from './details-frame';
+export * from './details-layer';
 export * from './grid-layer';
 export * from './image-layer';
 export * from './photo-frame';

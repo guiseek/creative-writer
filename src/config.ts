@@ -94,9 +94,7 @@ const devParana = {
 }
 
 const logos = [
-  ['Admin', 'logos/admin.svg'],
   ['Agile', 'logos/agile.svg'],
-  ['Avisos', 'logos/avisos.svg'],
   ['Curitiba', 'logos/curitiba.svg'],
   ['Delphi', 'logos/delphi.svg'],
   ['Geral', 'logos/geral.svg'],
@@ -104,7 +102,6 @@ const logos = [
   ['PHP', 'logos/php.svg'],
   ['Rust', 'logos/rust.svg'],
   ['TypeScript', 'logos/typescript.svg'],
-  ['Vagas', 'logos/vagas.svg'],
 ]
 
 const backgrounds = [
@@ -172,26 +169,26 @@ export const layerSchema: LayerSchema = {
 }
 
 export const formControl: FormControl = {
-  grid: new FieldSet('Grid'),
-  title: new InputLabel('Title', 'text', 'title'),
-  date: new InputLabel('Date', 'date', 'date'),
-  time: new InputLabel('Time', 'time', 'time'),
-  location: new InputLabel('Location', 'text', 'location'),
-  background: new FieldSet('Background'),
-  logo: new FieldSet('Logo'),
+  grid: new FieldSet('Grade'),
+  title: new InputLabel('Título', 'text', 'title'),
+  date: new InputLabel('Dia', 'date', 'date'),
+  time: new InputLabel('Horário', 'time', 'time'),
+  location: new InputLabel('Local', 'text', 'location'),
+  background: new FieldSet('Imagem de fundo'),
+  logo: new FieldSet('Grupo'),
   sponsor: {
     input: new Input('file', 'file', false),
-    button: new Button('Add sponsor'),
+    button: new Button('Adicionar patrocinador'),
   },
   presentation: {
-    add: new Button('Add presentation', 'button'),
+    add: new Button('Adicionar apresentação', 'button'),
   },
   reset: new Button('Reset', 'reset'),
 }
 
 formControl.grid.add(
-  new SliderLabel('Grid', 'grid', config.grid.tile),
-  new CheckboxLabel('Active', 'gridActive', 'true', config.grid.active)
+  new SliderLabel('Quantidade', 'grid', config.grid.tile),
+  new CheckboxLabel('Mostrar', 'gridActive', 'true', config.grid.active)
 )
 
 formControl.logo.add(

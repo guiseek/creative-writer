@@ -26,7 +26,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
     .setWeight('normal')
     .setColor('#D9D9D9')
 
-  location = new WordLayer(0, 0, this.width - this.pin.width, this.height / 4)
+  location = new WordLayer(0, 0, this.width - this.pin.width, this.height)
     .setSize(48)
     .setWeight('normal')
     .setColor('#D9D9D9')

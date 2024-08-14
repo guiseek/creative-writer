@@ -3,7 +3,6 @@ import {onSponsorCreated, onSponsorSelected} from '@events/sponsor'
 import {Form, Canvas, Sidenav, Accordion, DownloadButton} from '@elements'
 import {PresentationForm} from '@components/presentation'
 import {onFormChange} from '@events'
-import {config} from '../config'
 import {use} from '@websqnl/di'
 import {h} from '@utils'
 import {
@@ -104,11 +103,11 @@ export const loadApp = (container: HTMLElement) => {
     control.title,
     dateTime,
     control.location,
+    control.logo,
     control.presentation.add,
     accordion,
-    control.sponsor.button,
     control.background,
-    control.logo,
+    control.sponsor.button,
     control.grid
   )
 

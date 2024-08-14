@@ -6,7 +6,7 @@ export class Checkbox extends Input<string> {
   constructor(
     public name: string,
     public value = 'true',
-    public checked = false
+    public checked = false,
   ) {
     super(name, 'checkbox')
   }

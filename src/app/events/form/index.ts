@@ -1,1 +1,1 @@
-export * from './form.change';
+export * from './form.change'

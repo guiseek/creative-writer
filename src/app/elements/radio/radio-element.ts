@@ -6,7 +6,7 @@ export class RadioElement extends Input<string> {
   constructor(
     public name: string,
     public value: string,
-    public checked = false
+    public checked = false,
   ) {
     super(name, 'radio')
   }

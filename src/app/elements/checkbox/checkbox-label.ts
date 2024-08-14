@@ -12,7 +12,7 @@ export class CheckboxLabel extends HTMLLabelElement {
     text: string,
     public name: string,
     public value = 'true',
-    public checked = false
+    public checked = false,
   ) {
     super()
     this.text = this.#createSpan(text)

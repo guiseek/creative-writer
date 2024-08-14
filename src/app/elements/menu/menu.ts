@@ -4,7 +4,10 @@ import {h} from '@utils/h'
 
 @builtIn('menu', 'cw-menu')
 export class Menu extends HTMLMenuElement {
-  constructor(public context: HTMLElement, ...buttons: MenuButton[]) {
+  constructor(
+    public context: HTMLElement,
+    ...buttons: MenuButton[]
+  ) {
     super()
     this.add(...buttons)
   }
@@ -19,8 +22,8 @@ export class Menu extends HTMLMenuElement {
     this.context.style.left = pageX + 'px'
     this.context.style.top = pageY + 'px'
 
-    console.log(this.context.style.display);
-    
+    console.log(this.context.style.display)
+
     if (this.context.style.display === 'none') {
       this.context.style.display = 'block'
     }

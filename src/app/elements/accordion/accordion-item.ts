@@ -77,12 +77,12 @@ export class AccordionItem extends HTMLDetailsElement {
 
     this.animation.section = this.section.animate(
       {opacity: [1, 0]},
-      this.animation.config
+      this.animation.config,
     )
 
     this.animation.root = this.animate(
       {height: [startHeight, endHeight]},
-      this.animation.config
+      this.animation.config,
     )
 
     this.animation.root.onfinish = () => this.onAnimationFinish(false)
@@ -123,7 +123,7 @@ export class AccordionItem extends HTMLDetailsElement {
       {
         height: [startHeight, endHeight],
       },
-      config
+      config,
     )
 
     this.animation.section = this.section.animate({opacity: [0, 1]}, config)
@@ -201,8 +201,8 @@ export class AccordionItem extends HTMLDetailsElement {
   getDragAfterElement(y: number) {
     const items = Array.from(
       this.parentElement!.querySelectorAll<AccordionItem>(
-        '.ws-accordion-item:not(.dragging)'
-      )
+        '.ws-accordion-item:not(.dragging)',
+      ),
     )
 
     return items.reduce(
@@ -219,7 +219,7 @@ export class AccordionItem extends HTMLDetailsElement {
       {
         offset: Number.NEGATIVE_INFINITY,
         element: null as AccordionItem | null,
-      }
+      },
     ).element
   }
 }

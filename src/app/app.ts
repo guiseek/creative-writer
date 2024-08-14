@@ -89,14 +89,14 @@ export const loadApp = (container: HTMLElement) => {
     layer.logo,
     layer.background,
     layer.title,
-    layer.details
+    layer.details,
   )
 
   const dateTime = h(
     'div',
     {className: 'form-group'},
     control.date,
-    control.time
+    control.time,
   )
 
   form.append(
@@ -108,7 +108,7 @@ export const loadApp = (container: HTMLElement) => {
     accordion,
     control.background,
     control.sponsor.button,
-    control.grid
+    control.grid,
   )
 
   sidenav.add(form)

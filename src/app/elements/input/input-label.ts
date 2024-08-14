@@ -16,7 +16,7 @@ export class InputLabel<T> extends HTMLLabelElement {
     public name: string,
     onChange = () => {},
     public mode: InputMode = 'outlined',
-    public required = false
+    public required = false,
   ) {
     super()
     this.text = this.#createSpan(text)
@@ -43,7 +43,6 @@ export class InputLabel<T> extends HTMLLabelElement {
     return this
   }
 
-
   disable() {
     this.element.disabled = true
   }
@@ -61,7 +60,7 @@ export class InputLabel<T> extends HTMLLabelElement {
     name: string,
     type: InputType,
     onChange: () => void,
-    required: boolean
+    required: boolean,
   ) {
     return new Input(name, type, required, onChange)
   }

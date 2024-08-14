@@ -1,2 +1,2 @@
-export * from './radio-label';
-export * from './radio-element';
+export * from './radio-label'
+export * from './radio-element'

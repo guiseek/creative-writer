@@ -1,4 +1,4 @@
-import {Presentation} from '@interfaces/presentation'
+import {SubmittedPresentation} from '@interfaces/presentation'
 import {GithubUser} from '@interfaces/github-user'
 import {InputLabel} from '@elements/input'
 import {builtIn} from '@utils/decorators'
@@ -8,18 +8,18 @@ import {Form} from '@elements/form'
 import {h} from '@utils/h'
 
 @builtIn('form', 'cw-presentation-form')
-export class PresentationForm extends Form<Presentation> {
+export class PresentationForm extends Form<SubmittedPresentation> {
   header = h('h2', {textContent: 'Apresentação'})
 
   controls = {
     title: new InputLabel(
       'Título da apresentação',
       'text',
-      'title'
+      'title',
     ).setRequired(true),
     github: new InputLabel('Github', 'text', 'github'),
     speaker: new InputLabel('Nome do apresentador', 'text', 'name').setRequired(
-      true
+      true,
     ),
     role: new InputLabel('Papel de atuação', 'text', 'role').setRequired(true),
     photo: new InputLabel<File>('Foto', 'file', 'photo').setRequired(true),

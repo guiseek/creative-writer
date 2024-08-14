@@ -1,6 +1,6 @@
 export function s<
   K extends keyof SVGElementTagNameMap,
-  A extends SVGElementTagNameMap[K]
+  A extends SVGElementTagNameMap[K],
 >(
   name: K,
   attrs: Partial<A> = {},

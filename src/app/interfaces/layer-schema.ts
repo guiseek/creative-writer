@@ -1,4 +1,10 @@
-import type {DetailsLayer, GridLayer, ImageLayer, TextLayer, WordLayer} from '@models'
+import type {
+  DetailsLayer,
+  GridLayer,
+  ImageLayer,
+  TextLayer,
+  WordLayer,
+} from '@models'
 import type {PresentationSchema} from './presentation'
 
 export abstract class DetailsSchema {

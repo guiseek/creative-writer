@@ -12,7 +12,7 @@ export class RadioLabel extends HTMLLabelElement {
     text: string,
     public name: string,
     public value: string,
-    public checked = false
+    public checked = false,
   ) {
     super()
     this.text = this.#createSpan(text)

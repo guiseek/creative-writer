@@ -9,7 +9,7 @@ export const resize = (original: Required<Size>, target: Partial<Size>) => {
     return {height: target.height, width}
   } else {
     throw new DOMException(
-      `You must provide either target.width or target.height`
+      `You must provide either target.width or target.height`,
     )
   }
 }

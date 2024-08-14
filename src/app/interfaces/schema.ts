@@ -8,4 +8,3 @@ export interface Schema {
   logo: string
   background: string
 }
-

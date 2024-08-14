@@ -11,7 +11,7 @@ export function children<T extends HTMLElement>(target: Type<T>) {
 
 export function getChildren<T extends HTMLElement>(
   decorated: T,
-  property: (keyof T & string) | symbol
+  property: (keyof T & string) | symbol,
 ) {
   const walker = document.createTreeWalker(decorated, NodeFilter.SHOW_ELEMENT)
 

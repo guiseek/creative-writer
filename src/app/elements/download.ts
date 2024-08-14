@@ -13,7 +13,7 @@ export class DownloadButton extends HTMLButtonElement {
       </svg>
 
     `,
-    'image/svg+xml'
+    'image/svg+xml',
   )
 
   constructor(private canvas: Canvas) {
@@ -38,7 +38,7 @@ export class DownloadButton extends HTMLButtonElement {
           }
         },
         'image/png',
-        1
+        1,
       )
     }
   }

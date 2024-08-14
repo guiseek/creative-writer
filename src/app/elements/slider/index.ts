@@ -1,2 +1,2 @@
-export * from './slider-label';
-export * from './slider';
+export * from './slider-label'
+export * from './slider'

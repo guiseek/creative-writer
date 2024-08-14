@@ -33,8 +33,8 @@ load(
     {
       ref: FormControl,
       use: formControl,
-    }
-  )
+    },
+  ),
 )
 
 font('Mukta', [200, 300, 400, 500, 600, 700, 800]).then(() => loadApp(app))

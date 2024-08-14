@@ -23,7 +23,7 @@ export const onSponsorSelected = (file: File) => {
         config.sponsor.x + center.width + offset,
         config.sponsor.y + center.height,
         dimension.width,
-        dimension.height
+        dimension.height,
       ).setSrc(logo.src)
 
       handler.emit('sponsor.created', sponsor)

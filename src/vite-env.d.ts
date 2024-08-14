@@ -3,6 +3,6 @@
 declare const app: HTMLDivElement
 
 declare module '*.html' {
-  const content: HTMLCollection;
-  export default content;
+  const content: HTMLCollection
+  export default content
 }

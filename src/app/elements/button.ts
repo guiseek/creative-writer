@@ -9,7 +9,7 @@ export class Button extends HTMLButtonElement {
     public textContent: string,
     public type: ButtonType = 'button',
     public onclick: (event: Event) => void = () => {},
-    public mode: ButtonMode = 'outlined'
+    public mode: ButtonMode = 'outlined',
   ) {
     super()
   }

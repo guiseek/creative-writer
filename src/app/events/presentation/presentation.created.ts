@@ -7,8 +7,7 @@ export const onPresentationCreated = (presentation: PresentationLayer) => {
   const canvas = use(Canvas)
   const layer = use(LayerSchema)
 
-  console.log(presentation);
-  
+  console.log(presentation)
 
   canvas.add(presentation)
   layer.presentations.push(presentation)

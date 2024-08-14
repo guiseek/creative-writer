@@ -9,7 +9,10 @@ export class Canvas extends HTMLCanvasElement {
   #layers: Layer[] = []
   #dragging: Layer | null = null
 
-  constructor(public width: number, public height: number) {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {
     super()
     this.context = this.getContext('2d')!
     this.onmousedown = this.#onMouseDown

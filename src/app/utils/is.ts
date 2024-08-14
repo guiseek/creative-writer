@@ -11,7 +11,7 @@ export const is = {
   boolean(value: unknown): value is boolean | 'true' | 'false' {
     const possibilities = ['true', 'false', true, false]
     const isPossibility = possibilities.some(
-      (possibility) => possibility === value
+      (possibility) => possibility === value,
     )
     return typeof value === 'boolean' || isPossibility
   },

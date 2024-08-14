@@ -26,7 +26,7 @@ export class Input<T> extends HTMLInputElement {
     public name: string,
     public type: InputType,
     public required = false,
-    public onchange = () => {}
+    public onchange = () => {},
   ) {
     super()
   }

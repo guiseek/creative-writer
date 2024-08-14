@@ -13,7 +13,7 @@ export class PresentationLayer extends Layer implements PresentationSchema {
     this.position.x + this.photo.position.x,
     0,
     this.width - this.photo.width,
-    this.height / 4
+    this.height / 4,
   )
     .setSize(48)
     .setWeight('bold')
@@ -23,7 +23,7 @@ export class PresentationLayer extends Layer implements PresentationSchema {
     this.title.position.x + this.title.width,
     0,
     this.width - this.photo.width,
-    this.height / 2
+    this.height / 2,
   )
     .setSize(32)
     .setWeight('normal')

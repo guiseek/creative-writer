@@ -132,31 +132,31 @@ export const layerSchema: LayerSchema = {
     config.grid.x,
     config.grid.y,
     config.grid.w,
-    config.grid.h
+    config.grid.h,
   ),
   background: new ImageLayer(
     config.background.x,
     config.background.y,
     config.background.w,
-    config.background.h
+    config.background.h,
   ),
   logo: new ImageLayer(
     config.logo.x,
     config.logo.y,
     config.logo.w,
-    config.logo.h
+    config.logo.h,
   ),
   title: new TextLayer(
     config.title.x,
     config.title.y,
     config.title.w,
-    config.title.h
+    config.title.h,
   ),
   details: new DetailsLayer(
     config.details.x,
     config.details.y,
     config.details.w,
-    config.details.h
+    config.details.h,
   ),
   presentations: [],
   sponsors: [],
@@ -164,7 +164,7 @@ export const layerSchema: LayerSchema = {
     config.logo.x,
     config.logo.y,
     config.logo.w,
-    config.logo.h
+    config.logo.h,
   ),
 }
 
@@ -188,17 +188,17 @@ export const formControl: FormControl = {
 
 formControl.grid.add(
   new SliderLabel('Quantidade', 'grid', config.grid.tile),
-  new CheckboxLabel('Mostrar', 'gridActive', 'true', config.grid.active)
+  new CheckboxLabel('Mostrar', 'gridActive', 'true', config.grid.active),
 )
 
 formControl.logo.add(
   ...config.logos.map(([text, value]) => {
     return new RadioLabel(text, 'logo', value)
-  })
+  }),
 )
 
 formControl.background.add(
   ...config.backgrounds.map(([text, value]) => {
     return new RadioLabel(text, 'background', value)
-  })
+  }),
 )

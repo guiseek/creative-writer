@@ -3,7 +3,7 @@ import {appendWord} from './append-word'
 export function writeText(
   ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D,
   text: string,
-  maxWidth: number
+  maxWidth: number,
 ): string[] {
   const lines: string[] = []
   const words = text.split(' ')

@@ -4,7 +4,7 @@ type OptionInit = [
   text: string,
   value: string,
   defaultSelected?: boolean,
-  selected?: boolean
+  selected?: boolean,
 ]
 
 @builtIn('select', 'cw-select')
@@ -13,7 +13,7 @@ export class Select<T> extends HTMLSelectElement {
     public name: string,
     public onchange = () => {},
     public required = false,
-    public multiple = false
+    public multiple = false,
   ) {
     super()
   }

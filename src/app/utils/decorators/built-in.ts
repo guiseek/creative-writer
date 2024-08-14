@@ -5,7 +5,7 @@ interface CustomElement<T> extends CustomElementConstructor {
 
 export const builtIn = <K extends keyof HTMLElementTagNameMap>(
   is: K,
-  tag: `${string}-${string}`
+  tag: `${string}-${string}`,
 ) => {
   return <T extends CustomElement<HTMLElementTagNameMap[K]>>(target: T) => {
     customElements.define(tag, target, {extends: is})

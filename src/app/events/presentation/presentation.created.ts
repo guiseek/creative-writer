@@ -1,20 +1,22 @@
-import {PresentationSchema} from '@interfaces/presentation'
+import {PresentationLayer} from '@models/presentation-layer'
 import {LayerSchema} from '@interfaces/layer-schema'
 import {Canvas} from '@elements/canvas'
-import {values} from '@utils/iterators'
 import {use} from '@websqnl/di'
 
-export const onPresentationCreated = (schema: PresentationSchema) => {
+export const onPresentationCreated = (presentation: PresentationLayer) => {
   const canvas = use(Canvas)
   const layer = use(LayerSchema)
 
-  canvas.add(schema.photo, schema.title, schema.speaker, schema.role)
-  layer.presentations.push(...values(schema))
+  console.log(presentation);
+  
 
-  schema.photo
+  canvas.add(presentation)
+  layer.presentations.push(presentation)
+
+  presentation
     .render()
-    .then(() => schema.title.render())
-    .then(() => schema.speaker.render())
-    .then(() => schema.role.render())
+    // .then(() => schema.title.render())
+    // .then(() => schema.speaker.render())
+    // // .then(() => schema.role.render())
     .then(() => canvas.render())
 }

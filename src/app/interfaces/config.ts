@@ -17,6 +17,11 @@ export abstract class Config {
   abstract logo: RectConfig
   abstract background: RectConfig
   abstract title: RectConfig
+  abstract presentation: RectConfig
+  abstract details: RectConfig
+  abstract date: RectConfig
+  abstract time: RectConfig
+  abstract location: RectConfig
   abstract sponsor: RectConfig
   abstract devParana: RectConfig
   abstract logos: string[][]

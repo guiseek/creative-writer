@@ -7,6 +7,7 @@ export * from './sidenav';
 export * from './slider';
 export * from './button';
 export * from './canvas';
+export * from './download';
 export * from './field-set';
 export * from './form';
 export * from './select';

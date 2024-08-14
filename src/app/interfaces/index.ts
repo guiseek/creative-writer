@@ -4,6 +4,7 @@ export * from './data-file';
 export * from './event-handler';
 export * from './event-map';
 export * from './form-control';
+export * from './github-user';
 export * from './layer-schema';
 export * from './presentation';
 export * from './schema';

@@ -1,6 +1,6 @@
 import {EventHandler, FormControl, LayerSchema, Schema} from '@interfaces'
 import {onSponsorCreated, onSponsorSelected} from '@events/sponsor'
-import {Form, Canvas, Sidenav, Accordion} from '@elements'
+import {Form, Canvas, Sidenav, Accordion, DownloadButton} from '@elements'
 import {PresentationForm} from '@components/presentation'
 import {onFormChange} from '@events'
 import {config} from '../config'
@@ -73,7 +73,7 @@ export const loadApp = (container: HTMLElement) => {
   handler.on('presentation.handled', onPresentationHandled)
   handler.on('presentation.created', onPresentationCreated)
 
-  layer.grid.setSize(config.grid.tile).setOrder(10).render()
+  // layer.grid.setSize(config.grid.tile).setOrder(10).render()
 
   layer.background.setDraggable(false).setSrc(form.value.logo).render()
 
@@ -85,15 +85,30 @@ export const loadApp = (container: HTMLElement) => {
     .setColor('white')
     .render()
 
-  canvas.add(layer.grid, layer.logo, layer.background, layer.title)
+  canvas.add(
+    layer.grid,
+    layer.logo,
+    layer.background,
+    layer.title,
+    layer.details
+  )
+
+  const dateTime = h(
+    'div',
+    {className: 'form-group'},
+    control.date,
+    control.time
+  )
 
   form.append(
-    control.background,
     control.title,
-    control.logo,
+    dateTime,
+    control.location,
     control.presentation.add,
     accordion,
     control.sponsor.button,
+    control.background,
+    control.logo,
     control.grid
   )
 
@@ -101,6 +116,9 @@ export const loadApp = (container: HTMLElement) => {
 
   const main = h('main')
 
+  const download = new DownloadButton(canvas)
+
   main.append(canvas)
-  container.append(main, sidenav)
+
+  container.append(main, sidenav, download)
 }

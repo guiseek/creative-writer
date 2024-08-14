@@ -41,6 +41,10 @@ export class WordLayer extends Layer {
     return this
   }
 
+  get isEmpty() {
+    return this.#word === ''
+  }
+
   setWord(text: string) {
     this.#word = text
     return this

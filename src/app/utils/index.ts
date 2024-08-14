@@ -6,6 +6,7 @@ export * from './event-emitter';
 export * from './font';
 export * from './h';
 export * from './is';
+export * from './load-blob';
 export * from './load-image-data';
 export * from './parse-dom';
 export * from './parse';

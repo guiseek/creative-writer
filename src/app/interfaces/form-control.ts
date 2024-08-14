@@ -23,7 +23,10 @@ export interface FormPresentationControl {
 
 export abstract class FormControl {
   abstract grid: FieldSet
-  abstract title: InputLabel<unknown>
+  abstract title: InputLabel<string>
+  abstract date: InputLabel<string>
+  abstract time: InputLabel<string>
+  abstract location: InputLabel<string>
   abstract background: FieldSet
   abstract logo: FieldSet
   abstract sponsor: FormSponsorControl

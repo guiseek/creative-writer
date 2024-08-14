@@ -43,7 +43,7 @@ $margin__button: calc($width__sidenav + 16px);
 .cw-sidenav {
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   width: $width__sidenav;
   height: 100vh;
   background-color: rgba(var(--cw-onprimary-rgb), 0.38);
@@ -56,12 +56,17 @@ $margin__button: calc($width__sidenav + 16px);
   form {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   fieldset,
   form > button,
   form > label {
-    margin: 1em;
+    margin: 0.6em 1em;
+  }
+
+  details section {
+    padding: 0;
   }
 
   details[open] summary {
@@ -69,7 +74,6 @@ $margin__button: calc($width__sidenav + 16px);
   }
 
   &.is-open {
-    // overflow-x: auto;
     transform: translateX(0);
   }
 }

@@ -1,26 +1,26 @@
 import {PhotoLayer} from '@models/photo-layer'
+import {TextLayer} from '@models/text-layer'
 import {WordLayer} from '@models/word-layer'
-
-export interface SubmitedSpeaker {
+export interface SubmittedPresentation {
   name: string
   role: string
   company?: string
+  title: string
+  photo: File | string
 }
 
-export interface SubmittedPresentation extends SubmitedSpeaker {
+export interface Presentation {
   title: string
-  photo: File
-}
-
-export interface Presentation extends SubmitedSpeaker {
-  title: string
+  name: string
+  role: string
+  company?: string
   photo: string
 }
 
 export interface PresentationSchema {
-  title: WordLayer
+  title: TextLayer
   speaker: WordLayer
-  role: WordLayer
+  // role: WordLayer
   photo: PhotoLayer
   company?: WordLayer
 }

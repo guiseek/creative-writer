@@ -1,10 +1,11 @@
-@use './scss/components/accordion';
-@use './scss/components/checkbox';
-@use './scss/components/sidenav';
-@use './scss/components/button';
-@use './scss/components/slider';
-@use './scss/components/input';
-@use './scss/components/radio';
+@use './scss/accordion';
+@use './scss/checkbox';
+@use './scss/download';
+@use './scss/sidenav';
+@use './scss/button';
+@use './scss/slider';
+@use './scss/input';
+@use './scss/radio';
 
 html, body {
   height: 100%;
@@ -38,9 +39,10 @@ html, body {
 }
 
 body {
+  margin: 0;
   display: flex;
   justify-content: center;
-  // overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 #app {
@@ -62,6 +64,17 @@ canvas {
   overflow: hidden;
 }
 
+.form-group {
+  margin: 16px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+
+  > label {
+    flex: 1;
+  }
+}
+
 fieldset {
   display: flex;
   flex-flow: row wrap;
@@ -70,7 +83,7 @@ fieldset {
   // width: 100%;
   padding: 1.8em 2.2em 2.2em;
   border: solid 2px rgba(var(--cw-onsurface-rgb, 0, 0, 0), 0.6);
-  gap: 2em;
+  gap: 1em 2em;
   legend {
     padding: 0 0.5em;
   }

@@ -1,5 +1,5 @@
+import {DetailsLayer, GridLayer, ImageLayer, TextLayer} from '@models'
 import type {Config, FormControl, LayerSchema} from '@interfaces'
-import {GridLayer, ImageLayer, TextLayer} from '@models'
 import {
   Input,
   Button,
@@ -12,14 +12,15 @@ import {
 
 const width = 1080
 const height = 1080
+const tile = 6
 
 const grid = {
   x: 0,
   y: 0,
   w: width,
   h: height,
-  tile: 6,
-  active: true,
+  tile,
+  active: false,
 }
 
 const background = {
@@ -40,6 +41,41 @@ const title = {
   x: 220,
   y: 20,
   w: width - 180,
+  h: 180,
+}
+
+const presentation = {
+  x: 0,
+  y: 180,
+  w: width,
+  h: 180 * 3,
+}
+
+const date = {
+  x: 0,
+  y: height - 360,
+  w: 270,
+  h: 180,
+}
+
+const time = {
+  x: date.x + date.w,
+  y: date.y,
+  w: 180,
+  h: date.h,
+}
+
+const location = {
+  x: time.x + time.w,
+  y: time.y,
+  w: width - time.x - time.w,
+  h: time.h,
+}
+
+const details = {
+  x: 0,
+  y: height - 360,
+  w: width,
   h: 180,
 }
 
@@ -83,6 +119,11 @@ export const config: Config = {
   logo,
   background,
   title,
+  details,
+  date,
+  time,
+  location,
+  presentation,
   sponsor,
   devParana,
   backgrounds,
@@ -114,6 +155,12 @@ export const layerSchema: LayerSchema = {
     config.title.w,
     config.title.h
   ),
+  details: new DetailsLayer(
+    config.details.x,
+    config.details.y,
+    config.details.w,
+    config.details.h
+  ),
   presentations: [],
   sponsors: [],
   devParana: new ImageLayer(
@@ -127,6 +174,9 @@ export const layerSchema: LayerSchema = {
 export const formControl: FormControl = {
   grid: new FieldSet('Grid'),
   title: new InputLabel('Title', 'text', 'title'),
+  date: new InputLabel('Date', 'date', 'date'),
+  time: new InputLabel('Time', 'time', 'time'),
+  location: new InputLabel('Location', 'text', 'location'),
   background: new FieldSet('Background'),
   logo: new FieldSet('Logo'),
   sponsor: {

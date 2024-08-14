@@ -2,6 +2,7 @@ import {DetailsSchema} from '@interfaces/layer-schema'
 import {ImageLayer} from './image-layer'
 import {WordLayer} from './word-layer'
 import {Layer} from './base'
+import {dateTime} from '@utils/date-time'
 
 export class DetailsLayer extends Layer implements DetailsSchema {
   calendar = new ImageLayer(this.position.x, 0, 180, 180)
@@ -81,8 +82,7 @@ export class DetailsLayer extends Layer implements DetailsSchema {
   }
 
   setDate(value: string) {
-    const date = new Date(value).toLocaleDateString()
-    this.date.setWord(date).render()
+    this.date.setWord(dateTime.format(new Date(value))).render()
     return this
   }
 

@@ -23,7 +23,7 @@ export class InputLabel<T> extends HTMLLabelElement {
     this.element = this.#createElement(name, type, onChange, required)
   }
 
-  setText(text: InputType) {
+  setLabel(text: string) {
     this.text.textContent = text
     return this
   }

@@ -1,4 +1,4 @@
-import {Size} from '@interfaces/size'
+import {Size} from '@interfaces/common'
 
 export const determineCenter = (area: Size, item: Size) => {
   const width = area.width / 2 - item.width / 2

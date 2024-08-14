@@ -1,4 +1,4 @@
-import {Presentation} from '@interfaces/presentation'
+import {SubmittedPresentation} from '@interfaces/presentation'
 import {InputLabel} from '@elements/input'
 import {builtIn} from '@utils/decorators'
 import {Button} from '@elements/button'
@@ -7,12 +7,12 @@ import {Form} from '@elements/form'
 import {h} from '@utils/h'
 
 @builtIn('form', 'cw-presentation-form')
-export class PresentationForm extends Form<Presentation> {
+export class PresentationForm extends Form<SubmittedPresentation> {
   header = h('h2', {textContent: 'Presentation'})
 
   controls = {
     title: new InputLabel('Title', 'text', 'title').setRequired(true),
-    speaker: new InputLabel('Speaker', 'text', 'speaker').setRequired(true),
+    speaker: new InputLabel('Speaker name', 'text', 'name').setRequired(true),
     role: new InputLabel('Role', 'text', 'role').setRequired(true),
     photo: new InputLabel('Photo', 'file', 'photo').setRequired(true),
     company: new InputLabel('Company', 'text', 'company'),

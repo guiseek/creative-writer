@@ -9,17 +9,11 @@ export class Canvas extends HTMLCanvasElement {
   #layers: Layer[] = []
   #dragging: Layer | null = null
 
-  #grid = 180
-
-  setGrid(grid: number) {
-    this.#grid = grid
-  }
-
   constructor(public width: number, public height: number) {
     super()
     this.context = this.getContext('2d')!
-    this.onmousedown = this.onMouseDown
-    this.onmousemove = this.onMouseMove
+    this.onmousedown = this.#onMouseDown
+    this.onmousemove = this.#onMouseMove
     this.onmouseup = this.#onMouseUp
 
     this.oncontextmenu = (event) => {
@@ -78,36 +72,26 @@ export class Canvas extends HTMLCanvasElement {
     }
   }
 
-  onMouseMove = ({offsetX, offsetY}: MouseEvent) => {
+  #onMouseDown = ({offsetX, offsetY}: MouseEvent) => {
+    const position = new Vector2(offsetX, offsetY)
+
+    const layer = this.#layers
+      .filter((layer) => layer.draggable)
+      .find((layer) => {
+        return layer.detectCollision(position)
+      })
+
+    if (layer) this.#dragLayer(layer, position)
+  }
+
+  #onMouseMove = (event: MouseEvent) => {
     if (this.#dragging) {
+      const {offsetX, offsetY} = event
       const newPosition = new Vector2(offsetX, offsetY)
-      this.#dragging.drag(newPosition, this.#grid / 3)
-      console.log(newPosition);
-      
+      this.#dragging.dragTo(newPosition)
       this.render()
     }
   }
-
-  // #onMouseDown = ({offsetX, offsetY}: MouseEvent) => {
-  //   const position = new Vector2(offsetX, offsetY)
-
-  //   const layer = this.#layers
-  //     .filter((layer) => layer.draggable)
-  //     .find((layer) => {
-  //       return layer.detectCollision(position)
-  //     })
-
-  //   if (layer) this.#dragLayer(layer, position)
-  // }
-
-  // #onMouseMove = (event: MouseEvent) => {
-  //   if (this.#dragging) {
-  //     const {offsetX, offsetY} = event
-  //     const newPosition = new Vector2(offsetX, offsetY)
-  //     this.#dragging.dragTo(newPosition)
-  //     this.render()
-  //   }
-  // }
 
   #onMouseUp = () => {
     if (this.#dragging) {
@@ -117,10 +101,10 @@ export class Canvas extends HTMLCanvasElement {
     }
   }
 
-  // #dragLayer(layer: Layer, position: Vector2) {
-  //   this.#dragging = layer
-  //   layer.dragStart(position)
-  // }
+  #dragLayer(layer: Layer, position: Vector2) {
+    this.#dragging = layer
+    layer.dragStart(position)
+  }
 
   add(...layers: Layer[]) {
     this.#layers.push(...layers)

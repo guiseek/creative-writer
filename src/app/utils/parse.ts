@@ -1,4 +1,4 @@
-import {PropValue} from '@interfaces/prop-value'
+import {PropValue} from '@interfaces/common'
 import {is} from './is'
 
 export const parse = <T>(value: PropValue) => {

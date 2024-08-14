@@ -1,4 +1,4 @@
-import {Callback} from '@interfaces/callback'
+import {Callback} from '@interfaces/common'
 
 export class EventEmitter<T> {
   #subs = new Map()

@@ -1,4 +1,4 @@
-import {Size} from '@interfaces/size'
+import {Size} from '@interfaces/common'
 
 export const resize = (original: Required<Size>, target: Partial<Size>) => {
   if (target.width && !target.height) {

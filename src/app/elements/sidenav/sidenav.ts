@@ -28,6 +28,8 @@ export class Sidenav extends HTMLElement {
     })
 
     observer.observe(this, {childList: true, subtree: true})
+
+    this.onClickInsideButton()
   }
 
   add(...children: Node[]) {

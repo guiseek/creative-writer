@@ -1,4 +1,4 @@
-import {Size} from '@interfaces/size'
+import {Size} from '@interfaces/common'
 
 export const determineSize = (original: Size, max: Size) => {
   const ratio = {

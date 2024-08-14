@@ -1,10 +1,16 @@
-import {onSponsorInputChange, onFormChange, onSubmitPresentation} from '@events'
 import {EventHandler, FormControl, LayerSchema, Schema} from '@interfaces'
+import {onSponsorCreated, onSponsorSelected} from '@events/sponsor'
 import {Form, Canvas, Sidenav, Accordion} from '@elements'
 import {PresentationForm} from '@components/presentation'
-import {h, readDataFile} from '@utils'
+import {onFormChange} from '@events'
 import {config} from '../config'
 import {use} from '@websqnl/di'
+import {h} from '@utils'
+import {
+  onPresentationCreated,
+  onPresentationHandled,
+  onPresentationSubmitted,
+} from '@events/presentation'
 
 export const loadApp = (container: HTMLElement) => {
   const canvas = use(Canvas)
@@ -14,7 +20,7 @@ export const loadApp = (container: HTMLElement) => {
   const layer = use(LayerSchema)
   const control = use(FormControl)
 
-  const emitter = use(EventHandler)
+  const handler = use(EventHandler)
 
   const accordion = new Accordion()
 
@@ -27,22 +33,21 @@ export const loadApp = (container: HTMLElement) => {
    */
   control.sponsor.input.onchange = () => {
     const [file] = control.sponsor.input.files ?? []
-    emitter.emit('sponsorInputChange', file)
+    handler.emit('sponsor.selected', file)
   }
 
-  emitter.on('sponsorInputChange', onSponsorInputChange)
+  handler.on('sponsor.selected', onSponsorSelected)
+  handler.on('sponsor.created', onSponsorCreated)
 
   control.sponsor.button.onclick = () => {
     control.sponsor.input.click()
   }
 
   const form = new Form<Schema>(() => {
-    console.log(form.value);
-    
-    emitter.emit('formChange', form.value)
+    handler.emit('form.updated', form.value)
   })
 
-  emitter.on('formChange', onFormChange)
+  handler.on('form.updated', onFormChange)
 
   /**
    *                                 _        _   _
@@ -55,21 +60,18 @@ export const loadApp = (container: HTMLElement) => {
 
   control.presentation.add.onclick = () => {
     const form = new PresentationForm()
-    accordion.add(`Presentation ${accordion.items.length + 1}`, form)
+    const label = `Presentation ${accordion.items.length + 1}`
+    accordion.add(label, form)
 
     form.onsubmit = (ev) => {
       ev.preventDefault()
-
-      const photo = form.value.photo as any
-      if (photo instanceof File) {
-        readDataFile(photo).then(({data}) => {
-          emitter.emit('submitPresentation', {...form.value, photo: data})
-        })
-      }
+      handler.emit('presentation.submitted', form.value)
     }
   }
 
-  emitter.on('submitPresentation', onSubmitPresentation)
+  handler.on('presentation.submitted', onPresentationSubmitted)
+  handler.on('presentation.handled', onPresentationHandled)
+  handler.on('presentation.created', onPresentationCreated)
 
   layer.grid.setSize(config.grid.tile).setOrder(10).render()
 
@@ -87,15 +89,13 @@ export const loadApp = (container: HTMLElement) => {
 
   form.append(
     control.background,
-    control.logo,
     control.title,
+    control.logo,
     control.presentation.add,
-    control.sponsor.button,
     accordion,
+    control.sponsor.button,
     control.grid
   )
-
-  canvas.setGrid(Math.round(config.grid.w / config.grid.tile))
 
   sidenav.add(form)
 

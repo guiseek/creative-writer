@@ -1,13 +1,18 @@
+import {
+  Presentation,
+  PresentationSchema,
+  SubmittedPresentation,
+} from './presentation'
 import {ImageLayer} from '@models/image-layer'
-import {Presentation} from './presentation'
 import {Schema} from './schema'
 
 export interface EventMap {
-  sponsorInputChange: File
-  sponsorLayerAdded: ImageLayer
-  sponsorInputError: File
+  'sponsor.created': ImageLayer
+  'sponsor.selected': File
 
-  formChange: Schema
+  'presentation.created': PresentationSchema
+  'presentation.handled': Presentation
+  'presentation.submitted': SubmittedPresentation
 
-  submitPresentation: Presentation
+  'form.updated': Schema
 }

@@ -18,7 +18,7 @@ const grid = {
   y: 0,
   w: width,
   h: height,
-  tile: 12,
+  tile: 6,
   active: true,
 }
 
@@ -30,17 +30,17 @@ const background = {
 }
 
 const logo = {
-  x: 50,
-  y: 50,
-  w: 128,
-  h: 128,
+  x: 30,
+  y: 30,
+  w: 160,
+  h: 160,
 }
 
 const title = {
-  x: 300,
-  y: 60,
-  w: width - 128 - 50,
-  h: 128,
+  x: 220,
+  y: 20,
+  w: width - 180,
+  h: 180,
 }
 
 const sponsor = {
@@ -131,7 +131,7 @@ export const formControl: FormControl = {
   logo: new FieldSet('Logo'),
   sponsor: {
     input: new Input('file', 'file', false),
-    button: new Button('Select image'),
+    button: new Button('Add sponsor'),
   },
   presentation: {
     add: new Button('Add presentation', 'button'),

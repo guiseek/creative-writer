@@ -15,7 +15,7 @@
     "vite-tsconfig-paths": "^5.0.1"
   },
   "dependencies": {
-    "@websqnl/di": "^0.2.4",
+    "@websqnl/di": "^0.2.5",
     "reflect-metadata": "^0.2.2"
   }
 }

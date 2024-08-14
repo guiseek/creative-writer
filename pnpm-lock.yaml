@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@websqnl/di':
-    specifier: ^0.2.4
-    version: 0.2.4
+    specifier: ^0.2.5
+    version: 0.2.5
   reflect-metadata:
     specifier: ^0.2.2
     version: 0.2.2
@@ -367,8 +367,8 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
-  /@websqnl/di@0.2.4:
-    resolution: {integrity: sha512-KFWB/gOHZpsFCiDxxmOESgqtQ4teQHfjeQVjWIM86RSaY1FimifZHWpd3AlWwKk60lVcrd1chd8HoJ8wik7R3A==}
+  /@websqnl/di@0.2.5:
+    resolution: {integrity: sha512-4DAqzr9JvRmbEpcOIWgAa6UyyNUCjeik36Eay4nZ0oj64HDRrhKt4/PWRMZzBUd9ppGcF3ZfdWIxt4yjXeOuUw==}
     dev: false
 
   /anymatch@3.1.3:
